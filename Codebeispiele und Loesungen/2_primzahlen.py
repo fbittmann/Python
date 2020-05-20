@@ -90,15 +90,18 @@ def primtest(n):
 
 def semiprimzahl(n):
 	"""Testet, ob n semiprim ist"""
-	for i in range(2, n//2):
+	auswahl = []
+	for i in range(2, n // 2):
 		if n % i == 0:
-			j = n // 2
-			if primtest(i) == True and primtest(j) == True:
-				return True
-			else:
-				return False
-	return False
+			j = n // i
+			auswahl.append([i, j])
+	for i, j in auswahl:
+		print(i, j)
+		if primtest(i) and primtest(j):
+			return True
+		else:
+			return False
 
 print(semiprimzahl(35))
-print(semiprimzahl(12))
+print(semiprimzahl(91))
 
